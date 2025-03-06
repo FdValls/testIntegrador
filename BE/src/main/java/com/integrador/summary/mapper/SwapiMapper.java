@@ -8,7 +8,7 @@ import com.integrador.summary.swapiDTO.SwapiDTO;
 @Component
 public class SwapiMapper {
 
-    public static SwapiDTO mapToSwapiDTO(Person person) {
+    public SwapiDTO mapToSwapiDTO(Person person) {
         if (person == null) {
             return null;
         }

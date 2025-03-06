@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.integrador.summary.mapper.SwapiMapper;
 import com.integrador.summary.model.Person;
 import com.integrador.summary.model.SwapiResponse;
 import com.integrador.summary.repository.SwapiRepository;
@@ -17,6 +18,8 @@ public class SwapiService {
     public static String URL = "https://swapi.dev/api";
     @Autowired
     private SwapiRepository swapiRepository;
+    @Autowired
+    private SwapiMapper swapiMapper;
 
     public SwapiResponse getAllData() {
         RestTemplate restTemplate = new RestTemplate();
@@ -43,6 +46,10 @@ public class SwapiService {
 
     public void deletePerson(Long idPerson) {
         this.swapiRepository.delete(this.swapiRepository.findById(idPerson).get());
+    }
+
+    public SwapiDTO findById(Long id){
+        return swapiMapper.mapToSwapiDTO(this.swapiRepository.findById(id).get());
     }
 
 }

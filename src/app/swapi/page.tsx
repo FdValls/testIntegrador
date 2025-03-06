@@ -39,7 +39,7 @@ export default function CardSWAPI() {
         fetchData();
     }, []);
 
-    // console.log(data);
+    console.log(data);
 
     return (
         <>

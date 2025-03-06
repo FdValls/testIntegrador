@@ -21,6 +21,7 @@ public class SummaryApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         for (Person sr : swapiService.getAllData().getResults()) {
+            System.out.println(sr);
             swapiService.saveAllData(sr);
         }
     }
